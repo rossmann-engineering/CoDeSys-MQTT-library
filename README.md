@@ -20,7 +20,7 @@ Library: MQTT_Client.library
 Namespace: MQTT_Client
   
 |  Name |  Datatype |  Initial Value	 | Comment  |
-|---|---|---|---|---|
+|---|---|---|---|
 |  i_xEnable |  BOOL |  TRUE |  Enables the Function block. The rising Edge of this Input automatically connects to the MQTT-Broker |
 | i_sBrokerAddress  |  STRING |  'www.mqtt-dashboard.com' | IP-Address (example: 192.168.178.101) or Webaddress (www.mqtt-dashboard.com) of the MQTT-Broker|
 |  i_uiPort | UINT  |  1883 | Port of the MQTT-Broker|
