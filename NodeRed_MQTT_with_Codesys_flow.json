@@ -1,0 +1,192 @@
+[
+    {
+        "id": "110716210954f313",
+        "type": "tab",
+        "label": "test MQTT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2c838d2401374403",
+        "type": "mqtt in",
+        "z": "110716210954f313",
+        "name": "",
+        "topic": "test/codesys",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "a6be8b69449e66eb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 100,
+        "wires": [
+            [
+                "d3de3fc029873dbb",
+                "3ad185c3016f2bb6"
+            ]
+        ]
+    },
+    {
+        "id": "b0fc002bb13c4140",
+        "type": "mqtt out",
+        "z": "110716210954f313",
+        "name": "",
+        "topic": "test/nodered",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6be8b69449e66eb",
+        "x": 750,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d3de3fc029873dbb",
+        "type": "debug",
+        "z": "110716210954f313",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "dc8f49190678344f",
+        "type": "inject",
+        "z": "110716210954f313",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hello from nodered, codesys last message",
+        "payloadType": "str",
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "7a09d3905c2c29ec"
+            ]
+        ]
+    },
+    {
+        "id": "3ad185c3016f2bb6",
+        "type": "change",
+        "z": "110716210954f313",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "codesys",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a09d3905c2c29ec",
+        "type": "function",
+        "z": "110716210954f313",
+        "name": "function 1",
+        "func": "msg.payload=msg.payload+\":\"+flow.get(\"codesys\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "b0fc002bb13c4140"
+            ]
+        ]
+    },
+    {
+        "id": "a18817e48938aee5",
+        "type": "inject",
+        "z": "110716210954f313",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hello",
+        "payloadType": "str",
+        "x": 410,
+        "y": 280,
+        "wires": [
+            [
+                "b0fc002bb13c4140"
+            ]
+        ]
+    },
+    {
+        "id": "a6be8b69449e66eb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
