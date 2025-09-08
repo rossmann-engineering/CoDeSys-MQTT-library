@@ -1,3 +1,14 @@
+This is a fork from https://github.com/rossmann-engineering/CoDeSys-MQTT-library \
+It has been corrected to be compatible with Codesys V3.5.20 SP3\
+Tested with Codesys Control Win, Node-Red and MQTT Explorer\
+To test it:\
+1- Run a Broker locally like Mosquitto\
+2- Open Codesys MQTT Library, press "Save Project and install into library repository"\
+2- Open and Download the example project "CoDeSys-MQTT-library_CodesysExample.project" with Codesys V3.5.20 SP3 to the Codesys Control Win V3 x64 Controller\
+3- Launch Node-Red locally, import the example and publish\
+4- Watch test/codesys and test/nodered topics (with MQTT Explorer for example)\
+________________________________________________________________________________________
+
 CoDeSys MQTT library Overview
 
 The purpose of this library is to publish PLC variables to an MQTT Broker. Suitable for industrial IoT Solutions.  
